@@ -1,0 +1,57 @@
+#include <iostream>
+using namespace std;
+
+class Employee {
+    string name;
+    int empID;
+    string department;
+    string position;
+    double salary;
+
+public:
+    void getData() {
+        cout << "Enter Employee Name: ";
+        cin.ignore();
+        getline(cin, name);
+
+        cout << "Enter Employee ID: ";
+        cin >> empID;
+
+        cout << "Enter Department: ";
+        cin.ignore();
+        getline(cin, department);
+
+        cout << "Enter Position: ";
+        getline(cin, position);
+
+        cout << "Enter Salary: ";
+        cin >> salary;
+    }
+
+    void display() {
+        
+        cout << "Name: " << name << "\n";
+        cout << "Employee ID: " << empID << "\n";
+        cout << "Department: " << department << "\n";
+        cout << "Position: " << position << "\n";
+        cout << "Salary: " << salary << "\n";
+    }
+};
+
+int main() {
+    Employee e;
+    e.getData();
+    e.display();
+    return 0;
+}
+
+
+
+//Expected output
+
+
+Name: Madhav
+Employee ID: 100
+Department: Engineering
+Position: Design Engineer
+Salary: 100000
