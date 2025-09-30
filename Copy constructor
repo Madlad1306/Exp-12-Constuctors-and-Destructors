@@ -1,0 +1,113 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class student {
+    int price;
+    int year;
+    string name;
+    string author;
+    string publisher;
+
+public:
+    
+    student(string n, string a, string pub, int p, int y) {
+        name = n;
+        author = a;
+        publisher = pub;
+        price = p;
+        year = y;
+    }
+
+   
+    student(const student &s) {
+        name = s.name;
+        author = s.author;
+        publisher = s.publisher;
+        price = s.price;
+        year = s.year;
+        cout << endl << "Copy constructor has been called" << endl;
+        cout << endl;
+    }
+
+   
+    void display() {
+        cout << "Book Name: " << name << endl;
+        cout << "Author: " << author << endl;
+        cout << "Publisher: " << publisher << endl;
+        cout << "Price: " << price << endl;
+        cout << "Year: " << year << endl;
+    }
+};
+
+int main() {
+    student s1("Turtles all the way down", "John Green", "Dutton Books", 799, 2017);  
+    cout << endl;
+    cout << "Before Copying " << endl;
+    cout << endl;
+    s1.display();
+
+    
+    student s2 = s1;    
+
+    cout << "After Copying " << endl;
+    cout << endl;
+    s2.display();
+    cout << endl;
+    return 0;
+}
+
+
+
+#include <iostream>
+using namespace std;
+
+int objcount = 0;
+
+class destruct {
+public:
+    destruct() {
+        objcount++;
+        cout << "No. of objects created: " << objcount << endl;
+    }
+
+    ~destruct() {
+        objcount--; 
+        cout << "No. of objects destroyed: " << objcount << endl;
+    }
+};
+
+int main() {
+    cout << "Program Start" << endl;
+    cout << endl;
+
+    destruct d1, d2, d3, d4, d5,d6;  
+
+    cout << endl;
+    cout << "Program End" << endl;
+    cout << endl;
+    return 0;
+}
+
+
+
+
+//Expected Output
+
+Before Copying 
+
+Book Name: 1984
+Author: George Orwell
+Publisher: ABC
+Price: 1000
+Year: 1947
+
+Copy constructor has been called
+
+After Copying 
+
+Book Name: 1984
+Author: George Orwell
+Publisher: ABC
+Price: 1000
+Year: 1947
